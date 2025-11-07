@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitibuba Doces | Sabor de Carinho</title>
+    <!-- Incluindo Tailwind CSS para garantir responsividade e estética moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontes do Logo (Pacifico) e Conteúdo (Quicksand) -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- INÍCIO DO CSS (Estilos Personalizados) -->
+    <style>
+        /* Paleta de Cores Pitibuba (Baseada no Logo) */
+        :root {
+            --color-primary: #FF77A1; /* Rosa Chiclete/Vivo */
+            --color-secondary: #5BC0EB; /* Azul Claro/Tiffany */
+            --color-accent: #FFD166; /* Amarelo Suave/Vibrante */
+            --color-dark: #333333; /* Texto Principal Escuro */
+            --color-light: #F8F8F8; /* Fundo Leve */
+            --color-white: #FFFFFF;
+        }
+
+        /* ------------------ ROLAGEM SUAVE ------------------ */
+        /* Essencial para que o clique nos menus role suavemente (smooth scroll) */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Base e Tipografia */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            font-family: 'Pacifico', cursive; /* Fonte do Logo para títulos */
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        /* HEADER / HERO SECTION */
+        header {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            padding: 20px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 5%;
+        }
+
+        .logo {
+            /* Definindo a largura máxima para o container do logo */
+            max-width: 180px; 
+            height: auto;
+        }
+        
+        .logo-img {
+            /* Garante que a imagem do logo seja responsiva */
+            width: 100%;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            color: var(--color-white);
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-content {
+            padding-top: 15vh;
+            padding-bottom: 20vh;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--color-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* BOTÃO PRINCIPAL */
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        /* SEÇÕES GERAIS */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--color-light);
+        }
+
+        .bg-dark {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .bg-dark h2 {
+            color: var(--color-accent);
+        }
+
+        .content-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        .content-text p {
+            margin-bottom: 15px;
+        }
+
+        /* CARDÁPIO */
+        .card-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: var(--color-white);
+            border: 1px solid #DDDDDD;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* DEPOIMENTOS */
+        .testimonial-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial {
+            background-color: var(--color-white);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--color-primary);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            font-style: italic;
+        }
+
+        .testimonial span {
+            display: block;
+            text-align: right;
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--color-primary);
+            font-style: normal;
+        }
+        
+        /* CONTATOS */
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão Voltar ao Topo */
+        #backToTopBtn {
+            display: none; /* Esconder por padrão */
+            position: fixed; /* Fixar na tela */
+            bottom: 20px; /* Distância do fundo */
+            right: 30px; /* Distância da direita */
+            z-index: 99; /* Ficar acima de outros elementos */
+            border: none;
+            outline: none;
+            background-color: var(--color-primary);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            line-height: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        #backToTopBtn:hover {
+            background-color: var(--color-secondary);
+        }
+
+
+        /* RESPONSIVIDADE (MOBILE) */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 5px; /* Espaçamento entre os links no mobile */
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .card-grid, .testimonial-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card, .testimonial {
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
+    <!-- FIM DO CSS -->
+</head>
+<body>
+
+    <!-- CABEÇALHO E MENU (HERO SECTION) -->
+    <header id="inicio">
+        <div class="container">
+            <!-- LOGO: Caminho corrigido para imgs/logomarca_oficial.png -->
+            <div class="logo">
+                <img src="imgs/logomarca_oficial.png" alt="Pitibuba Doces Logo Oficial" class="logo-img">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contatos">Contatos</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="hero-content">
+            <h1>Sabor de Carinho em Cada Mordida!</h1>
+            <p>Chup-Chups e Brigadeiros Gourmet feitos com amor de mãe em Belo Horizonte.</p>
+            <a href="#cardapio" class="btn-primary">Veja Nosso Cardápio</a>
+        </div>
+    </header>
+
+    <!-- SEÇÃO QUEM SOMOS -->
+    <section id="quem-somos" class="section-padding">
+        <div class="container">
+            <h2>Quem Somos</h2>
+            <div class="content-text">
+                <p>A Pitibuba Doces nasceu da união carinhosa dos apelidos de nossas filhas, Pititi e Bubabu. Mais do que doces, criamos experiências que unem afeto, qualidade gourmet e a alegria de momentos especiais.</p>
+                <p>Nossa missão é levar o sabor do lar para você, utilizando ingredientes selecionados para garantir a cremosidade e o sabor inigualável de cada chup-chup, brigadeiro e brownie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CARDÁPIO -->
+    <section id="cardapio" class="section-padding bg-light">
+        <div class="container">
+            <h2>Nosso Cardápio</h2>
+            <div class="card-grid">
+                <!-- Item 1: Chup-Chup Ninho com Nutella -->
+                <div class="card">
+                    <h3>Chup-Chup Ninho c/ Nutella</h3>
+                    <p>O queridinho! Extremamente cremoso, feito com Leite Ninho de verdade e recheado com Nutella Original.</p>
+                </div>
+                <!-- Item 2: Brigadeiro Belga -->
+                <div class="card">
+                    <h3>Brigadeiro Belga</h3>
+                    <p>O clássico com toque gourmet: feito com chocolate belga e confeitos nobres, perfeito para encomendas.</p>
+                </div>
+                <!-- Item 3: Brownie Duplo Chocolate -->
+                <div class="card">
+                    <h3>Brownie Duplo Chocolate</h3>
+                    <p>Molhadinho por dentro, com casquinha crocante, ideal para acompanhar nosso chup-chup.</p>
+                </div>
+            </div>
+            <!-- Link para o WhatsApp (ajuste o link) -->
+            <a href="https://wa.me/seunumerodetelefone?text=Ola%2C%20gostaria%20de%20fazer%20um%20pedido%20da%20Pitibuba%20Doces!" target="_blank" class="btn-primary" style="margin-top: 40px;">Fazer Pedido Agora!</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DEPOIMENTOS -->
+    <section id="depoimentos" class="section-padding">
+        <div class="container">
+            <h2>O Que Dizem Nossos Clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Os chup-chups são inacreditáveis! O de Ninho não tem igual. A cremosidade é fantástica. Entrega rápida em BH!"</p>
+                    <span>— Maria S., Bairro Savassi</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Pedi uma caixa de brigadeiros para um evento e foi um sucesso! O sabor de carinho é real. Qualidade impecável."</p>
+                    <span>— João C., Bairro Lourdes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONTATOS -->
+    <section id="contatos" class="section-padding bg-dark">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p>Pronto para o seu momento doce? Fale conosco!</p>
+            <div class="contact-info">
+                <p><strong>WhatsApp:</strong> (31) [Seu Número]</p>
+                <p><strong>iFood:</strong> Procure por Pitibuba Doces</p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/seuperfil" target="_blank" class="text-white hover:text-yellow-300">@PitibubaDocesBH</a></p>
+                <p><strong>Endereço de Retirada (Combinar):</strong> Belo Horizonte/MG</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pitibuba Doces. Feito com Carinho. | CNPJ: [Seu MEI]</p>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button onclick="scrollToTop()" id="backToTopBtn" title="Voltar ao Topo">
+        &#9650; <!-- Seta para cima -->
+    </button>
+    
+    <script>
+        // Função para rolar para o topo
+        function scrollToTop() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+        }
+
+        // Mostrar/Esconder o botão Voltar ao Topo ao rolar
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            const btn = document.getElementById("backToTopBtn");
+            // Se o scroll for maior que 300px, mostra o botão
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
